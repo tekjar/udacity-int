@@ -17,7 +17,8 @@ proc append(self: var LinkedList, val: Element) =
   # while current != nil: current = current.next
 
   # current is a pointer to actual element. So above creates
-  # a bug when `current = nil && current = val`
+  # a bug when `current = nil && current = val` by assigning
+  # value to duplicate pointer instead of actual element pointer
   if self.head != nil:
     while current.next != nil:
       current = current.next
