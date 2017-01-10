@@ -18,11 +18,11 @@ proc append(self: var LinkedList, val: Element) =
 
   # current is a pointer to actual element. So above creates
   # a bug when `current = nil && current = val`
-
-  while current.next != nil:
-    current = current.next
-  
-  current.next = val
+  if self.head != nil:
+    while current.next != nil:
+      current = current.next
+  else:
+    self.head = val
 
 iterator items(list: LinkedList): string =
   var e = list.head
